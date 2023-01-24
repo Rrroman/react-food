@@ -1,15 +1,15 @@
 import React from 'react';
 import CartIcon from './CartIcon';
-import styles from './CartButton.module.css';
+import classes from './CartButton.module.css';
 
 export default function CartButton() {
   return (
-    <button className={styles.button}>
-      <span className={styles.icon}>
+    <button className={classes.button}>
+      <span className={classes.icon}>
         <CartIcon />
       </span>
       <span>Open Cart</span>
-      <span className={styles.badge}>99</span>
+      <span className={classes.badge}>99</span>
     </button>
   );
 }
