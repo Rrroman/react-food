@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 const DUMMY_LIST = [
   { id: 'c1', name: 'Sushi', amount: 2, price: 12.99 },
@@ -16,7 +17,7 @@ const Cart = () => {
   );
 
   return (
-    <div>
+    <Modal>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount: 10</span>
@@ -26,7 +27,7 @@ const Cart = () => {
         <button className={classes['button--alt']}>Close</button>
         <button className={classes.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
