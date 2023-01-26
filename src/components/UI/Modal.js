@@ -16,12 +16,12 @@ const ModalOverlay = (props) => {
 
 const portalDestination = document.getElementById('overlays');
 
-const Modal = (props) => {
+const Modal = ({ isCartModal, children }) => {
   return (
     <>
-      {createPortal(<Backdrop />, portalDestination)}
-      {createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+      {isCartModal && createPortal(<Backdrop isCartModal={isCartModal} />, portalDestination)}
+      {isCartModal && createPortal(
+        <ModalOverlay>{children}</ModalOverlay>,
         portalDestination
       )}
     </>
