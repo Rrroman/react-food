@@ -2,9 +2,9 @@ import React from 'react';
 import CartIcon from './CartIcon';
 import classes from './CartButton.module.css';
 
-export default function CartButton({ setIsCartModal }) {
+export default function CartButton({ openCartModal }) {
   return (
-    <button className={classes.button} onClick={() => setIsCartModal(true)}>
+    <button className={classes.button} onClick={openCartModal}>
       <span className={classes.icon}>
         <CartIcon />
       </span>

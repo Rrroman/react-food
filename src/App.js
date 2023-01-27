@@ -4,11 +4,15 @@ import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 
 function App() {
-  const [isCartModal, setIsCartModal] = useState(true);
+  const [isCartModal, setIsCartModal] = useState(false);
+
+  const closeCartHandler = () => setIsCartModal(false);
+  const openCartHandler = () => setIsCartModal(true);
+
   return (
     <>
-      <Cart isCartModal={isCartModal} setIsCartModal={setIsCartModal}/>
-      <Header setIsCartModal={setIsCartModal} />
+      {isCartModal && <Cart closeCartModal={closeCartHandler} />}
+      <Header openCartModal={openCartHandler} />
       <main>
         <Meals />
       </main>

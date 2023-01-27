@@ -7,7 +7,7 @@ const DUMMY_LIST = [
   { id: 'c3', name: 'Potato', amount: 3, price: 2.99 },
 ];
 
-const Cart = ({ isCartModal, setIsCartModal }) => {
+const Cart = ({ closeCartModal }) => {
   const cartItems = (
     <ul className={classes['cart-items']}>
       {DUMMY_LIST.map((food) => (
@@ -17,14 +17,16 @@ const Cart = ({ isCartModal, setIsCartModal }) => {
   );
 
   return (
-    <Modal isCartModal={isCartModal} setIsCartModal={setIsCartModal}>
+    <Modal closeCartModal={closeCartModal}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount: 10</span>
         <span>Total Price: 42</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes['button--alt']} onClick={() => setIsCartModal(false) }>Close</button>
+        <button className={classes['button--alt']} onClick={closeCartModal}>
+          Close
+        </button>
         <button className={classes.button}>Order</button>
       </div>
     </Modal>
