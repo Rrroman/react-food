@@ -17,7 +17,7 @@ const Cart = ({ closeCartModal }) => {
   );
 
   return (
-    <Modal closeCartModal={closeCartModal}>
+    <Modal onClose={closeCartModal}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount: 10</span>
