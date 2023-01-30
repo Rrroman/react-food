@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Cart from './components/Cart/Cart';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
+import CartProvider from './store/CartProvider';
 
 function App() {
   const [isCartModal, setIsCartModal] = useState(false);
@@ -10,13 +11,15 @@ function App() {
   const openCartHandler = () => setIsCartModal(true);
 
   return (
-    <>
-      {isCartModal && <Cart closeCartModal={closeCartHandler} />}
-      <Header openCartModal={openCartHandler} />
-      <main>
-        <Meals />
-      </main>
-    </>
+    <CartProvider>
+      <div>
+        {isCartModal && <Cart closeCartModal={closeCartHandler} />}
+        <Header openCartModal={openCartHandler} />
+        <main>
+          <Meals />
+        </main>
+      </div>
+    </CartProvider>
   );
 }
 
