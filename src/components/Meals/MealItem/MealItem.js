@@ -12,7 +12,7 @@ export default function MealItem({ meal }) {
       id: meal.id,
       name: meal.name,
       price: meal.price,
-      totalAmount: amount,
+      amount: amount,
     });
   }
 

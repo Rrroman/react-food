@@ -11,7 +11,17 @@ const cartReducer = (state, action) => {
     case 'ADD_ITEM':
       return {
         ...state,
-        items: [...state.items, action.item],
+        items: [
+          ...state.items.filter((item) => {
+            if (item.id !== action.item.id) {
+              return true;
+            } else {
+              state.totalAmount = state.totalAmount - item.price * item.amount;
+              return false;
+            }
+          }),
+          action.item,
+        ],
         totalAmount: state.totalAmount + action.item.price * action.item.amount,
       };
     case 'REMOVE_ITEM':
