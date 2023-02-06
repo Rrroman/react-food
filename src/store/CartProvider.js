@@ -3,7 +3,6 @@ import CartContext from './cart-context';
 
 const defaultCartState = {
   items: [],
-  totalAmount: 0,
 };
 
 const cartReducer = (state, action) => {
@@ -12,22 +11,46 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         items: [
-          ...state.items.filter((item) => {
-            if (item.id !== action.item.id) {
-              return true;
-            } else {
-              state.totalAmount = state.totalAmount - item.price * item.amount;
-              return false;
-            }
-          }),
+          ...state.items.filter((item) => item.id !== action.item.id),
           action.item,
         ],
-        totalAmount: state.totalAmount + action.item.price * action.item.amount,
+      };
+    case 'INCREASE_AMOUNT':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((item) => {
+            if (item.id === action.item.id) {
+              return {
+                ...item,
+                amount: (item.amount += 1),
+              };
+            } else {
+              return item;
+            }
+          }),
+        ],
       };
     case 'REMOVE_ITEM':
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.item.id),
+        items: state.items
+          .map((item) => {
+            if (item.id === action.item.id) {
+              if (item.amount - 1 === 0) {
+                return null;
+              } else {
+                item.amount -= 1;
+                return item;
+              }
+            } else {
+              return item;
+            }
+          })
+          .filter((item) => {
+            console.log(item);
+            return item;
+          }),
       };
     default:
       return state;
@@ -39,14 +62,17 @@ const CartProvider = (props) => {
   const addItem = (item) => {
     dispatch({ type: 'ADD_ITEM', item });
   };
-  const removeItem = (id) => {
-    dispatch({ type: 'REMOVE_ITEM', id });
+  const increaseAmount = (item) => {
+    dispatch({ type: 'INCREASE_AMOUNT', item });
+  };
+  const removeItem = (item) => {
+    dispatch({ type: 'REMOVE_ITEM', item });
   };
 
   const cartContext = {
     items: cartState.items,
-    totalAmount: cartState.totalAmount,
     addItem,
+    increaseAmount,
     removeItem,
   };
 
