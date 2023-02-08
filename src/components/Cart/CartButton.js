@@ -1,16 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CartIcon from './CartIcon';
 import classes from './CartButton.module.css';
 import CartContext from '../../store/cart-context';
 
 export default function CartButton({ openCartModal }) {
+  const [isBump, setIsBump] = useState(false);
   const cartCtx = useContext(CartContext);
-  const itemsAmount = cartCtx.items.reduce((acc, item) => {
+  const { items } = cartCtx;
+  const itemsAmount = items.reduce((acc, item) => {
     return acc + item.amount;
   }, 0);
 
+  useEffect(() => {
+    if (itemsAmount === 0) {
+      return;
+    }
+
+    setIsBump(true);
+    const bumpTimeout = setTimeout(() => {
+      setIsBump(false);
+      clearTimeout(bumpTimeout);
+    }, 300);
+
+    return () => {
+      clearTimeout(bumpTimeout);
+    };
+  }, [itemsAmount]);
+  const btnClasses = `${classes.button} ${isBump ? classes.bump : ''}`;
+
   return (
-    <button className={classes.button} onClick={openCartModal}>
+    <button className={btnClasses} onClick={openCartModal}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
