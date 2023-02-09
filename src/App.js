@@ -1,26 +1,14 @@
-import { useState } from 'react';
-import Cart from './components/Cart/Cart';
-import Header from './components/Layout/Header';
-import Meals from './components/Meals/Meals';
-import CartProvider from './store/CartProvider';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/Home';
+import ProductsPage from './pages/Products';
+
+const router = createBrowserRouter([
+  { path: '/', element: <HomePage /> },
+  { path: '/products', element: <ProductsPage /> },
+]);
 
 function App() {
-  const [isCartModal, setIsCartModal] = useState(false);
-
-  const closeCartHandler = () => setIsCartModal(false);
-  const openCartHandler = () => setIsCartModal(true);
-
-  return (
-    <CartProvider>
-      <div>
-        {isCartModal && <Cart closeCartModal={closeCartHandler} />}
-        <Header openCartModal={openCartHandler} />
-        <main>
-          <Meals />
-        </main>
-      </div>
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
