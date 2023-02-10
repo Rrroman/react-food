@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import classes from './CartItem.module.css';
 
-const CartItem = ({ food, onRemove, onAdd }) => {
+const CartItem = ({ food, onRemove, onAdd, onClose }) => {
   return (
     <li className={classes['cart-item']}>
       <div>
-        <h2>{food.name}</h2>
+        <h2 onClick={onClose}>
+          <Link to={`products/${food.id}`}>{food.name}</Link>
+        </h2>
         <div className={classes.summary}>
           <span className={classes.price}>${food.price.toFixed(2)}</span>
           <span className={classes.amount}>x {food.amount}</span>

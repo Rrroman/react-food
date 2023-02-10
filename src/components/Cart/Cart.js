@@ -22,6 +22,7 @@ const Cart = ({ closeCartModal }) => {
           food={food}
           onAdd={addHandler}
           onRemove={removeHandler}
+          onClose={closeCartModal}
         />
       ))}
     </ul>
