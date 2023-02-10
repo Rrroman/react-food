@@ -15,9 +15,11 @@
 }
 
 .main-image {
+  position: relative;
+  margin-bottom: -10rem;
   width: 100%;
   height: 25rem;
-  z-index: 0;
+  z-index: -10;
   overflow: hidden;
 }
 
@@ -26,4 +28,20 @@
   height: 100%;
   object-fit: cover;
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+}
+
+.list {
+  display: flex;
+  gap: 1rem;
+}
+
+.list a {
+  text-decoration: none;
+  color: var(--color-primary-400);
+}
+
+.list a:hover,
+.list a.active {
+  color: var(--color-primary-800);
+  text-decoration: underline;
 }
