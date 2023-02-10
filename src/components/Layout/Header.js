@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpeg';
 import CartButton from '../Cart/CartButton';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Header({ openCartModal }) {
   return (
@@ -10,14 +10,24 @@ export default function Header({ openCartModal }) {
       <header className={classes.header}>
         <h1>Best Food!</h1>
         <ul className={classes.list}>
-          <Link to="/" className={classes.link}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? `${classes.link} ${classes.active}` : null
+            }
+          >
             {' '}
             Home{' '}
-          </Link>
-          <Link to="/products" className={classes.link}>
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive ? `${classes.link} ${classes.active}` : null
+            }
+          >
             {' '}
             Products{' '}
-          </Link>
+          </NavLink>
         </ul>
         <CartButton openCartModal={openCartModal} />
       </header>
