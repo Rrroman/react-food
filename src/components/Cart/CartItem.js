@@ -5,8 +5,10 @@ const CartItem = ({ food, onRemove, onAdd, onClose }) => {
   return (
     <li className={classes['cart-item']}>
       <div>
-        <h2 onClick={onClose}>
-          <Link to={`products/${food.id}`}>{food.name}</Link>
+        <h2>
+          <Link to={`products/${food.id}`} onClick={onClose}>
+            {food.name}
+          </Link>
         </h2>
         <div className={classes.summary}>
           <span className={classes.price}>${food.price.toFixed(2)}</span>
@@ -14,7 +16,7 @@ const CartItem = ({ food, onRemove, onAdd, onClose }) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={() => onRemove(food)}>−</button>
+        <button onClick={() => onRemove(food)}>-</button>
         <button onClick={() => onAdd(food)}>+</button>
       </div>
     </li>
