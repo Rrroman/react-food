@@ -11,7 +11,7 @@ export const HomePage = () => {
         <h1>Home Page</h1>
         <p>
           Go to{' '}
-          <Link to="/products" style={{ color: 'aqua' }}>
+          <Link to="products" style={{ color: 'aqua' }}>
             Products
           </Link>
         </p>
