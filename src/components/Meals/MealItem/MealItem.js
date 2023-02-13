@@ -21,7 +21,7 @@ export default function MealItem({ meal }) {
     <li className={classes.meal}>
       <div>
         <h3>
-          <Link to={`products/${meal.id}`}>{meal.name}</Link>
+          <Link to={`${meal.id}`}>{meal.name}</Link>
         </h3>
         <div className={classes.description}>{meal.description}</div>
         <div className={classes.price}>${price}</div>
