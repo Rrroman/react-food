@@ -20,7 +20,7 @@ const RootLayout = () => {
         if (loadingRef.current) {
           loadingRef.current.style.opacity = 1;
         }
-      }, 500);
+      }, 0);
     } else {
       if (loadingRef.current) {
         loadingRef.current.style.opacity = 0;

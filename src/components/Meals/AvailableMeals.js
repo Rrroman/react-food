@@ -5,12 +5,12 @@ import classes from './AvailableMeals.module.css';
 import { useLoaderData } from 'react-router-dom';
 
 export default function AvailableMeals() {
-  const meals = useLoaderData();
+  const data = useLoaderData();
   return (
     <section className={classes.meals}>
       <Card>
         <ul>
-          {meals.map((meal) => (
+          {data.products.map((meal) => (
             <MealItem meal={meal} key={meal.id}></MealItem>
           ))}
         </ul>
@@ -24,7 +24,6 @@ export async function mealLoader() {
   if (!response.ok) {
     throw new Error('Something went wrong!', response);
   } else {
-    const data = await response.json();
-    return data.products;
+    return response;
   }
 }
