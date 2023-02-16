@@ -48,7 +48,6 @@ const cartReducer = (state, action) => {
             }
           })
           .filter((item) => {
-            console.log(item);
             return item;
           }),
       };
