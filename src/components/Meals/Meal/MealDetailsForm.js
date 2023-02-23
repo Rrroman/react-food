@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import classes from './MealDetailsForm.module.css';
 
-function MealDetailsForm({ method, event }) {
+function MealDetailsForm({ mealDetails }) {
   const navigate = useNavigate();
   function cancelHandler() {
     navigate('..');
@@ -14,15 +14,33 @@ function MealDetailsForm({ method, event }) {
       <form className={classes.form}>
         <p>
           <label htmlFor="name">Title</label>
-          <input id="name" type="text" name="name" required />
+          <input
+            id="name"
+            type="text"
+            name="name"
+            defaultValue={mealDetails && mealDetails.name}
+            required
+          />
         </p>
         <p>
           <label htmlFor="description">Description</label>
-          <input id="description" type="url" name="description" required />
+          <input
+            id="description"
+            type="url"
+            name="description"
+            defaultValue={mealDetails && mealDetails.description}
+            required
+          />
         </p>
         <p>
           <label htmlFor="price">Price</label>
-          <input id="price" type="number" name="price" required />
+          <input
+            id="price"
+            type="number"
+            name="price"
+            defaultValue={mealDetails && mealDetails.price}
+            required
+          />
         </p>
         <p>
           <label htmlFor="cooking_description">Cooking description</label>
@@ -30,6 +48,7 @@ function MealDetailsForm({ method, event }) {
             id="cooking_description"
             name="cooking_description"
             rows="5"
+            defaultValue={mealDetails && mealDetails.cooking_description}
             required
           />
         </p>

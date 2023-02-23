@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from '../components/UI/Card';
 import MealDetails from '../components/Meals/Meal/MealDetails';
-import { useLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from 'react-router-dom';
 import Container from '../components/Layout/Container';
 
 const MealDetailsPage = () => {
-  const data = useLoaderData();
+  const data = useRouteLoaderData('meal-details');
   return (
     <Container>
       <Card>

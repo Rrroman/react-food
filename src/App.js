@@ -27,12 +27,18 @@ const router = createBrowserRouter([
           },
           {
             path: ':id',
-            element: <MealDetailsPage />,
+            id: 'meal-details',
             loader: mealDetailsLoader,
-          },
-          {
-            path: ':id/edit',
-            element: <MealEdit />,
+            children: [
+              {
+                index: true,
+                element: <MealDetailsPage />,
+              },
+              {
+                path: 'edit',
+                element: <MealEdit />,
+              },
+            ],
           },
         ],
       },
