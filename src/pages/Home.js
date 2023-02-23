@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <Container>
       <Card>
-        <h1>"Tasting Heaven: Indulge in Our Ultimate Foodie Experience"</h1>
+        <h1>Tasting Heaven: Indulge in Our Ultimate Foodie Experience</h1>
         <p>
           Looking for the ultimate foodie experience? Look no further than
           "Tasting Heaven," a culinary journey that will take you on a flavorful
