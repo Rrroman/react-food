@@ -1,7 +1,7 @@
 import { json, Link } from 'react-router-dom';
 import classes from './MealItemDetails.module.css';
 
-export default function MealItem({ mealDetails }) {
+export default function MealItemDetails({ mealDetails }) {
   return (
     <div className={classes.meal}>
       <h1>{mealDetails.name}</h1>
@@ -21,7 +21,7 @@ export default function MealItem({ mealDetails }) {
 }
 
 export async function mealDetailsLoader({ request, params }) {
-  const response = await fetch('http://localhost:8080/products/' + params.id);
+  const response = await fetch('http://localhost:8080/meals/' + params.id);
   if (!response.ok) {
     throw json(
       { message: 'Something went wrong!' },

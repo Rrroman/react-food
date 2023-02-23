@@ -20,13 +20,13 @@ export default function Header({ openCartModal }) {
             Home{' '}
           </NavLink>
           <NavLink
-            to="/products"
+            to="/meals"
             className={({ isActive }) =>
               isActive ? `${classes.link} ${classes.active}` : null
             }
           >
             {' '}
-            Products{' '}
+            Meals{' '}
           </NavLink>
         </ul>
         <CartButton openCartModal={openCartModal} />

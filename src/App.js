@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ProductsRootLayout from './components/Layout/ProductsRoot';
+import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
 import { mealLoader } from './components/Meals/AvailableMeals';
 import { mealDetailsLoader } from './components/Meals/MealItem/MealItemDetails';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
-import ProductDetailsPage from './pages/ProductDetails';
-import ProductsPage from './pages/Products';
+import MealDetailsPage from './pages/MealDetails';
+import MealsPage from './pages/Meals';
 
 const router = createBrowserRouter([
   {
@@ -16,17 +16,17 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       {
-        path: 'products',
-        element: <ProductsRootLayout />,
+        path: 'meals',
+        element: <MealsRootLayout />,
         children: [
           {
             index: true,
-            element: <ProductsPage />,
+            element: <MealsPage />,
             loader: mealLoader,
           },
           {
             path: ':id',
-            element: <ProductDetailsPage />,
+            element: <MealDetailsPage />,
             loader: mealDetailsLoader,
           },
         ],

@@ -6,7 +6,7 @@ const CartItem = ({ food, onRemove, onAdd, onClose }) => {
     <li className={classes['cart-item']}>
       <div>
         <h2>
-          <Link to={`products/${food.id}`} onClick={onClose}>
+          <Link to={`meals/${food.id}`} onClick={onClose}>
             {food.name}
           </Link>
         </h2>

@@ -30,8 +30,8 @@ export const HomePage = () => {
         </p>
         <p>
           Go to{' '}
-          <Link to="products" style={{ color: '#ad5502' }}>
-            Products
+          <Link to="meals" style={{ color: '#ad5502' }}>
+            Meals
           </Link>
         </p>
       </Card>

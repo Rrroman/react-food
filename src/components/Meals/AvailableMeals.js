@@ -11,7 +11,7 @@ export default function AvailableMeals() {
     <section className={classes.meals}>
       <Card>
         <ul>
-          {data.products.map((meal) => (
+          {data.meals.map((meal) => (
             <MealItem meal={meal} key={meal.id}></MealItem>
           ))}
         </ul>
@@ -21,7 +21,7 @@ export default function AvailableMeals() {
 }
 
 export async function mealLoader() {
-  const response = await fetch('http://localhost:8080/products');
+  const response = await fetch('http://localhost:8080/meals');
   if (!response.ok) {
     throw json(
       { message: 'Something went wrong!' },

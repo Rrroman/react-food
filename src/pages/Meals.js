@@ -1,8 +1,8 @@
 import React from 'react';
 import Meals from '../components/Meals/Meals';
 
-export const ProductsPage = () => {
+export const MealsPage = () => {
   return <Meals />;
 };
 
-export default ProductsPage;
+export default MealsPage;

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
-function ProductsRootLayout() {
+function MealsRootLayout() {
   return <Outlet />;
 }
 
-export default ProductsRootLayout;
+export default MealsRootLayout;
