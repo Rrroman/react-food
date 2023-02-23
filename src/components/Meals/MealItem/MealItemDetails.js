@@ -12,8 +12,8 @@ export default function MealItem({ mealDetails }) {
       </div>
       <div>
         <p className={classes.price}>${mealDetails.price}</p>
-        <Link to="/" className={classes.link}>
-          Home
+        <Link to=".." className={classes.link}>
+          Back
         </Link>
       </div>
     </div>
