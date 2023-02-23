@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ProductsRootLayout from './components/Layout/ProductsRoot';
 import RootLayout from './components/Layout/Root';
 import { mealLoader } from './components/Meals/AvailableMeals';
 import ErrorPage from './pages/Error';
@@ -15,10 +16,16 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       {
         path: 'products',
-        element: <ProductsPage />,
-        loader: mealLoader,
+        element: <ProductsRootLayout />,
+        children: [
+          {
+            index: true,
+            element: <ProductsPage />,
+            loader: mealLoader,
+          },
+          { path: ':id', element: <ProductDetailsPage /> },
+        ],
       },
-      { path: 'products/:id', element: <ProductDetailsPage /> },
     ],
   },
 ]);
