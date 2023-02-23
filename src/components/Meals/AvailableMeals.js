@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../UI/Card';
-import MealItem from './MealItem/MealItem';
+import Meal from './Meal/Meal';
 import classes from './AvailableMeals.module.css';
 import { json, useLoaderData } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export default function AvailableMeals() {
       <Card>
         <ul>
           {data.meals.map((meal) => (
-            <MealItem meal={meal} key={meal.id}></MealItem>
+            <Meal meal={meal} key={meal.id}></Meal>
           ))}
         </ul>
       </Card>

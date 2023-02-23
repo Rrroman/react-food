@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import Input from '../../UI/Input';
-import classes from './MealItemForm.module.css';
+import classes from './MealForm.module.css';
 
-function MealItemForm({ meal, onAddToCart }) {
+function MealForm({ meal, onAddToCart }) {
   const [isValid, setIsValid] = useState(true);
   const amountInputRef = useRef();
 
@@ -40,4 +40,4 @@ function MealItemForm({ meal, onAddToCart }) {
   );
 }
 
-export default MealItemForm;
+export default MealForm;

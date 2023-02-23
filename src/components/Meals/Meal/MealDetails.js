@@ -1,7 +1,7 @@
 import { json, Link } from 'react-router-dom';
-import classes from './MealItemDetails.module.css';
+import classes from './MealDetails.module.css';
 
-export default function MealItemDetails({ mealDetails }) {
+export default function MealDetails({ mealDetails }) {
   return (
     <div className={classes.meal}>
       <h1>{mealDetails.name}</h1>

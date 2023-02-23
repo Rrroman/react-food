@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
 import { mealLoader } from './components/Meals/AvailableMeals';
-import { mealDetailsLoader } from './components/Meals/MealItem/MealItemDetails';
+import { mealDetailsLoader } from './components/Meals/Meal/MealDetails';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealDetailsPage from './pages/MealDetails';

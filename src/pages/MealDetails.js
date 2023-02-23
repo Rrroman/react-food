@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/UI/Card';
-import MealItemDetails from '../components/Meals/MealItem/MealItemDetails';
+import MealDetails from '../components/Meals/Meal/MealDetails';
 import { useLoaderData } from 'react-router-dom';
 import Container from '../components/Layout/Container';
 
@@ -9,7 +9,7 @@ const MealDetailsPage = () => {
   return (
     <Container>
       <Card>
-        <MealItemDetails mealDetails={data.meal} />
+        <MealDetails mealDetails={data.meal} />
       </Card>
     </Container>
   );

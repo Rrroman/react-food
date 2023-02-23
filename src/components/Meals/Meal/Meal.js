@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CartContext from '../../../store/cart-context';
-import classes from './MealItem.module.css';
-import MealItemForm from './MealItemForm';
+import classes from './Meal.module.css';
+import MealForm from './MealForm';
 
-export default function MealItem({ meal }) {
+export default function Meal({ meal }) {
   const cartCtx = useContext(CartContext);
   const price = meal.price.toFixed(2);
 
@@ -26,7 +26,7 @@ export default function MealItem({ meal }) {
         <div className={classes.description}>{meal.description}</div>
         <div className={classes.price}>${price}</div>
       </div>
-      <MealItemForm meal={meal} onAddToCart={addToCartHandler} />
+      <MealForm meal={meal} onAddToCart={addToCartHandler} />
     </li>
   );
 }
