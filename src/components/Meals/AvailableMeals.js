@@ -6,6 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 
 export default function AvailableMeals() {
   const data = useLoaderData();
+
   return (
     <section className={classes.meals}>
       <Card>
@@ -22,7 +23,9 @@ export default function AvailableMeals() {
 export async function mealLoader() {
   const response = await fetch('http://localhost:8080/products');
   if (!response.ok) {
-    throw new Error('Something went wrong!', response);
+    throw new Response(JSON.stringify({ message: 'Something went wrong!' }), {
+      status: 500,
+    });
   } else {
     return response;
   }
