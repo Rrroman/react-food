@@ -9,6 +9,12 @@ export default function MealDetails({ mealDetails }) {
         <p>{mealDetails.description}</p>
         <h2>Our receipt:</h2>
         <p>{mealDetails.cooking_description}</p>
+        <Link to="edit" className={classes.link}>
+          Edit
+        </Link>
+        <Link to="delete" className={classes.link}>
+          Delete
+        </Link>
       </div>
       <div>
         <p className={classes.price}>${mealDetails.price}</p>

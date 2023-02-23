@@ -1,7 +1,7 @@
 .loading {
   position: fixed;
-  background-color: #383838;
-  color: yellowgreen;
+  background-color: var(--color-gray-800);
+  color: var(--color-secondary-200);
   z-index: 200;
   left: 0;
   right: 0;

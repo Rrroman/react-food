@@ -6,6 +6,7 @@ import { mealDetailsLoader } from './components/Meals/Meal/MealDetails';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealDetailsPage from './pages/MealDetails';
+import MealEdit from './pages/MealEdit';
 import MealsPage from './pages/Meals';
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             path: ':id',
             element: <MealDetailsPage />,
             loader: mealDetailsLoader,
+          },
+          {
+            path: ':id/edit',
+            element: <MealEdit />,
           },
         ],
       },
