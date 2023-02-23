@@ -1,19 +1,17 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import Card from '../components/UI/Card';
+import MealItemDetails from '../components/Meals/MealItem/MealItemDetails';
+import { useLoaderData } from 'react-router-dom';
+import Container from '../components/Layout/Container';
 
 const ProductDetailsPage = () => {
-  const params = useParams();
+  const data = useLoaderData();
   return (
-    <Card>
-      <h1 style={{ textAlign: 'center' }}>
-        Product Details for{' '}
-        <i>
-          <u>{params.id}</u>
-        </i>{' '}
-        - will be added soon
-      </h1>
-    </Card>
+    <Container>
+      <Card>
+        <MealItemDetails mealDetails={data.product} />
+      </Card>
+    </Container>
   );
 };
 
