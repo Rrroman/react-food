@@ -1,4 +1,4 @@
-import { json, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './MealDetails.module.css';
 
 export default function MealDetails({ mealDetails }) {
@@ -24,18 +24,4 @@ export default function MealDetails({ mealDetails }) {
       </div>
     </div>
   );
-}
-
-export async function mealDetailsLoader({ request, params }) {
-  const response = await fetch('http://localhost:8080/meals/' + params.id);
-  if (!response.ok) {
-    throw json(
-      { message: 'Something went wrong!' },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    return response;
-  }
 }
