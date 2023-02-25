@@ -6,7 +6,7 @@ import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealDetailsPage, { mealDetailsLoader } from './pages/MealDetails';
 import MealEdit from './pages/MealEdit';
-import MealPurpose from './pages/MealPurpose';
+import MealPurpose, { addMealAction } from './pages/MealPurpose';
 import MealsPage from './pages/Meals';
 
 const router = createBrowserRouter([
@@ -43,6 +43,7 @@ const router = createBrowserRouter([
           {
             path: 'new',
             element: <MealPurpose />,
+            action: addMealAction,
           },
         ],
       },

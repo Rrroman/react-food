@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 
 import classes from './MealDetailsForm.module.css';
 
@@ -10,7 +10,7 @@ function MealDetailsForm({ mealDetails }) {
 
   return (
     <>
-      <form className={classes.form}>
+      <Form method="post" className={classes.form}>
         <p>
           <label htmlFor="name">Title</label>
           <input
@@ -25,7 +25,7 @@ function MealDetailsForm({ mealDetails }) {
           <label htmlFor="description">Description</label>
           <input
             id="description"
-            type="url"
+            type="text"
             name="description"
             defaultValue={mealDetails && mealDetails.description}
             required
@@ -57,7 +57,7 @@ function MealDetailsForm({ mealDetails }) {
           </button>
           <button>Save</button>
         </div>
-      </form>
+      </Form>
     </>
   );
 }
