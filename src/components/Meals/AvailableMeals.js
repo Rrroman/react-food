@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../UI/Card';
 import Meal from './Meal/Meal';
 import classes from './AvailableMeals.module.css';
-import { json, useLoaderData } from 'react-router-dom';
+import { json, Link, useLoaderData } from 'react-router-dom';
 
 export default function AvailableMeals() {
   const data = useLoaderData();
@@ -15,6 +15,11 @@ export default function AvailableMeals() {
             <Meal meal={meal} key={meal.id}></Meal>
           ))}
         </ul>
+        {data.meals.length === 0 && (
+          <Link to="new" className={`${classes.link}`}>
+            <h2>Add first meal!</h2>
+          </Link>
+        )}
       </Card>
     </section>
   );

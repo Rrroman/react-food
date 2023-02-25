@@ -5,7 +5,7 @@ import classes from './MealDetailsForm.module.css';
 function MealDetailsForm({ mealDetails }) {
   const navigate = useNavigate();
   function cancelHandler() {
-    navigate('..');
+    navigate(-1);
   }
 
   return (
@@ -18,6 +18,7 @@ function MealDetailsForm({ mealDetails }) {
             type="text"
             name="name"
             defaultValue={mealDetails && mealDetails.name}
+            placeholder="Meal name"
             required
           />
         </p>
@@ -28,6 +29,7 @@ function MealDetailsForm({ mealDetails }) {
             type="text"
             name="description"
             defaultValue={mealDetails && mealDetails.description}
+            placeholder="Meal description"
             required
           />
         </p>
@@ -38,6 +40,7 @@ function MealDetailsForm({ mealDetails }) {
             type="number"
             name="price"
             defaultValue={mealDetails && mealDetails.price}
+            placeholder="Meal price"
             required
           />
         </p>
@@ -48,6 +51,7 @@ function MealDetailsForm({ mealDetails }) {
             name="cooking_description"
             rows="5"
             defaultValue={mealDetails && mealDetails.cooking_description}
+            placeholder="Meal cooking description"
             required
           />
         </p>

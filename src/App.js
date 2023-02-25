@@ -4,7 +4,10 @@ import RootLayout from './components/Layout/Root';
 import { mealLoader } from './components/Meals/AvailableMeals';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
-import MealDetailsPage, { mealDetailsLoader } from './pages/MealDetails';
+import MealDetailsPage, {
+  mealDeleteAction,
+  mealDetailsLoader,
+} from './pages/MealDetails';
 import MealEdit from './pages/MealEdit';
 import MealPurpose, { addMealAction } from './pages/MealPurpose';
 import MealsPage from './pages/Meals';
@@ -33,6 +36,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <MealDetailsPage />,
+                action: mealDeleteAction,
               },
               {
                 path: 'edit',

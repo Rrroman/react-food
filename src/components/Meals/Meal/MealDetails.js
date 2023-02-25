@@ -1,7 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useSubmit } from 'react-router-dom';
 import classes from './MealDetails.module.css';
 
 export default function MealDetails({ mealDetails }) {
+  const submit = useSubmit();
+  const deleteMealHandler = () => {
+    const isConfirmed = window.confirm(
+      'Are you sure you want to delete this meal?'
+    );
+
+    if (isConfirmed) {
+      submit(null, { method: 'DELETE' });
+    }
+  };
+
   return (
     <div className={classes.meal}>
       <h1>{mealDetails.name}</h1>
@@ -13,9 +24,9 @@ export default function MealDetails({ mealDetails }) {
           <Link to="edit" className={classes.link}>
             Edit
           </Link>
-          <Link to="delete" className={classes.link}>
+          <button onClick={deleteMealHandler} className={classes.link}>
             Delete
-          </Link>
+          </button>
           <Link to="../new" className={`${classes.link} ${classes.new}`}>
             Purpose new meal!
           </Link>

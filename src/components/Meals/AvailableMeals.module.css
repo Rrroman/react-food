@@ -11,6 +11,17 @@
   padding: 0;
 }
 
+.link {
+  text-align: center;
+  color: var(--color-secondary-400);
+}
+
+.link:hover {
+  color: var(--color-secondary-800);
+  text-decoration: var(--color-secondary-800) wavy underline;
+  transition: color 0.5s ease-in-out;
+}
+
 @keyframes meals-appear {
   from {
     opacity: 0;
