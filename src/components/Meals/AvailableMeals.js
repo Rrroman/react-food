@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../UI/Card';
-import Meal from './Meal/Meal';
+import AvailableMeal from './AvailableMeal';
 import classes from './AvailableMeals.module.css';
 import { json, Link, useLoaderData } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export default function AvailableMeals() {
       <Card>
         <ul>
           {data.meals.map((meal) => (
-            <Meal meal={meal} key={meal.id}></Meal>
+            <AvailableMeal meal={meal} key={meal.id}></AvailableMeal>
           ))}
         </ul>
         {data.meals.length === 0 && (
@@ -25,7 +25,7 @@ export default function AvailableMeals() {
   );
 }
 
-export async function mealLoader() {
+export async function mealsLoader() {
   const response = await fetch('http://localhost:8080/meals');
   if (!response.ok) {
     throw json(

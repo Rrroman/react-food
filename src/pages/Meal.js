@@ -4,8 +4,8 @@ import MealDetails from '../components/Meals/Meal/MealDetails';
 import { json, redirect, useRouteLoaderData } from 'react-router-dom';
 import Container from '../components/Layout/Container';
 
-const MealDetailsPage = () => {
-  const data = useRouteLoaderData('meal-details');
+const MealPage = () => {
+  const data = useRouteLoaderData('meal');
   return (
     <Container>
       <Card>
@@ -15,9 +15,9 @@ const MealDetailsPage = () => {
   );
 };
 
-export default MealDetailsPage;
+export default MealPage;
 
-export async function mealDetailsLoader({ request, params }) {
+export async function mealLoader({ request, params }) {
   const response = await fetch('http://localhost:8080/meals/' + params.id);
   if (!response.ok) {
     throw json(

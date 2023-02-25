@@ -5,7 +5,7 @@ import MealDetailsForm from '../components/Meals/Meal/MealDetailsForm';
 import { useRouteLoaderData } from 'react-router-dom';
 
 const MealEdit = () => {
-  const data = useRouteLoaderData('meal-details');
+  const data = useRouteLoaderData('meal');
   return (
     <Container>
       <Card>

@@ -1,13 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
-import { mealLoader } from './components/Meals/AvailableMeals';
+import { mealsLoader } from './components/Meals/AvailableMeals';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
-import MealDetailsPage, {
-  mealDeleteAction,
-  mealDetailsLoader,
-} from './pages/MealDetails';
+import MealPage, { mealDeleteAction, mealLoader } from './pages/Meal';
 import MealEdit from './pages/MealEdit';
 import MealPurpose, { addMealAction } from './pages/MealPurpose';
 import MealsPage from './pages/Meals';
@@ -26,16 +23,16 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <MealsPage />,
-            loader: mealLoader,
+            loader: mealsLoader,
           },
           {
             path: ':id',
-            id: 'meal-details',
-            loader: mealDetailsLoader,
+            id: 'meal',
+            loader: mealLoader,
             children: [
               {
                 index: true,
-                element: <MealDetailsPage />,
+                element: <MealPage />,
                 action: mealDeleteAction,
               },
               {
