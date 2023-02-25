@@ -4,3 +4,7 @@
   border-radius: 14px;
   background-color: var(--color-gray-100);
 }
+
+.card h1 {
+  text-align: center;
+}

@@ -10,7 +10,6 @@ function MealDetailsForm({ mealDetails }) {
 
   return (
     <>
-      <h1 className={classes.title}>Edit this meal</h1>
       <form className={classes.form}>
         <p>
           <label htmlFor="name">Title</label>

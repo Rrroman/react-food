@@ -29,12 +29,12 @@
   --color-primary-800: #fab833;
   --color-primary-900: #f6ad1b;
 
-  --color-secondary-200: #FCFF68;
+  --color-secondary-200: #fcff68;
   --color-secondary-400: #ad5502;
   --color-secondary-600: #8a2b06;
-  --color-secondary-700: #641e03;  
+  --color-secondary-700: #641e03;
   --color-secondary-800: brown;
-  
+
   --color-shadow-500: rgba(0, 0, 0, 0.25);
 }
 
@@ -44,6 +44,5 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-gray-700); 
+  background-color: var(--color-gray-700);
 }
-

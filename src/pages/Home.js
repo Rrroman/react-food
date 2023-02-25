@@ -15,23 +15,27 @@ export const HomePage = () => {
           things delicious, featuring recipes, stories, and tips from the
           world's top chefs and food experts. From the vibrant flavors of street
           food to the luxurious indulgences of fine dining, "Tasting Heaven" has
-          it all. Each issue is filled with mouth-watering recipes that will
-          inspire you to get creative in the kitchen, as well as insider tips on
-          where to find the best ingredients and cooking techniques. But
-          "Tasting Heaven" isn't just about the food itself – it's also about
-          the stories behind it. You'll hear from chefs, restaurateurs, and food
-          enthusiasts who are passionate about sharing their love for cuisine
-          with the world. You'll learn about the cultural significance of
-          different dishes, as well as the techniques and traditions that make
-          them unique. So whether you're a seasoned foodie or just looking to
-          expand your culinary horizons, "Tasting Heaven" is the perfect
-          magazine for you. Join us on a delicious journey that will tantalize
-          your taste buds and leave you craving more.
+          it all.
         </p>
         <p>
-          Go to{' '}
+          Each issue is filled with mouth-watering recipes that will inspire you
+          to get creative in the kitchen, as well as insider tips on where to
+          find the best ingredients and cooking techniques. But "Tasting Heaven"
+          isn't just about the food itself – it's also about the stories behind
+          it. You'll hear from chefs, restaurateurs, and food enthusiasts who
+          are passionate about sharing their love for cuisine with the world.
+          You'll learn about the cultural significance of different dishes, as
+          well as the techniques and traditions that make them unique.
+        </p>
+        <p>
+          So whether you're a seasoned foodie or just looking to expand your
+          culinary horizons, "Tasting Heaven" is the perfect magazine for you.
+          Join us on a delicious journey that will tantalize your taste buds and
+          leave you craving more.
+        </p>
+        <p style={{ textAlign: 'right' }}>
           <Link to="meals" style={{ color: 'var(--color-secondary-400)' }}>
-            Meals
+            Go to Meals
           </Link>
         </p>
       </Card>

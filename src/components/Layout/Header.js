@@ -2,13 +2,15 @@ import React from 'react';
 import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpeg';
 import CartButton from '../Cart/CartButton';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Header({ openCartModal }) {
   return (
     <>
       <header className={classes.header}>
-        <h1>Best Food!</h1>
+        <Link to="/meals" className={classes.logo}>
+          Best Food!
+        </Link>
         <ul className={classes.list}>
           <NavLink
             to="/"

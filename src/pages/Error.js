@@ -27,7 +27,7 @@ const ErrorPage = () => {
 
   return (
     <Card>
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <h1>{errorTitle}</h1>
         <p>{message}</p>
         <p>
