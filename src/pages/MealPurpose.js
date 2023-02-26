@@ -34,6 +34,10 @@ export async function addMealAction({ request, params }) {
     body: JSON.stringify(meal),
   });
 
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     throw json({ message: 'Could not save meal' }, { status: 500 });
   }

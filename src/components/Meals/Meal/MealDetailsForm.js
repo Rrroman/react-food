@@ -1,9 +1,19 @@
-import { Form, useNavigate } from 'react-router-dom';
+import {
+  Form,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from 'react-router-dom';
 
 import classes from './MealDetailsForm.module.css';
 
 function MealDetailsForm({ mealDetails }) {
   const navigate = useNavigate();
+  const navigation = useNavigation();
+  const data = useActionData();
+
+  const isSubmitting = navigation.state === 'submitting';
+
   function cancelHandler() {
     navigate(-1);
   }
@@ -11,6 +21,13 @@ function MealDetailsForm({ mealDetails }) {
   return (
     <>
       <Form method="post" className={classes.form}>
+        {data && data.errors && (
+          <ul>
+            {Object.values(data.errors).map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
         <p>
           <label htmlFor="name">Title</label>
           <input
@@ -56,10 +73,12 @@ function MealDetailsForm({ mealDetails }) {
           />
         </p>
         <div className={classes.actions}>
-          <button type="button" onClick={cancelHandler}>
+          <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
             Cancel
           </button>
-          <button>Save</button>
+          <button disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting' : 'Save'}
+          </button>
         </div>
       </Form>
     </>
