@@ -10,7 +10,7 @@ const MealEdit = () => {
     <Container>
       <Card>
         <h1>Edit this meal</h1>
-        <MealDetailsForm mealDetails={data.meal} />
+        <MealDetailsForm mealDetails={data.meal} method="PATCH" />
       </Card>
     </Container>
   );

@@ -1,5 +1,7 @@
 import {
   Form,
+  json,
+  redirect,
   useActionData,
   useNavigate,
   useNavigation,
@@ -7,7 +9,7 @@ import {
 
 import classes from './MealDetailsForm.module.css';
 
-function MealDetailsForm({ mealDetails }) {
+function MealDetailsForm({ mealDetails, method }) {
   const navigate = useNavigate();
   const navigation = useNavigation();
   const data = useActionData();
@@ -20,7 +22,7 @@ function MealDetailsForm({ mealDetails }) {
 
   return (
     <>
-      <Form method="post" className={classes.form}>
+      <Form method={method} className={classes.form}>
         {data && data.errors && (
           <ul>
             {Object.values(data.errors).map((error) => (
@@ -86,3 +88,38 @@ function MealDetailsForm({ mealDetails }) {
 }
 
 export default MealDetailsForm;
+
+export async function saveMealAction({ request, params }) {
+  const method = request.method;
+  const mealData = await request.formData();
+  const meal = {
+    name: mealData.get('name'),
+    description: mealData.get('description'),
+    price: +mealData.get('price'),
+    cooking_description: mealData.get('cooking_description'),
+  };
+
+  let url = 'http://localhost:8080/meals';
+
+  if (method === 'PATCH') {
+    url += `/${params.id}`;
+  }
+
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(meal),
+  });
+
+  if (response.status === 422) {
+    return response;
+  }
+
+  if (!response.ok) {
+    throw json({ message: 'Could not save meal' }, { status: 500 });
+  }
+
+  return redirect('/meals');
+}

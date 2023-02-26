@@ -6,8 +6,9 @@ import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealPage, { mealDeleteAction, mealLoader } from './pages/Meal';
 import MealEdit from './pages/MealEdit';
-import MealAdd, { saveMeal } from './pages/MealAdd';
+import MealAdd from './pages/MealAdd';
 import MealsPage from './pages/Meals';
+import { saveMealAction } from './components/Meals/Meal/MealDetailsForm';
 
 const router = createBrowserRouter([
   {
@@ -38,13 +39,14 @@ const router = createBrowserRouter([
               {
                 path: 'edit',
                 element: <MealEdit />,
+                action: saveMealAction,
               },
             ],
           },
           {
             path: 'new',
             element: <MealAdd />,
-            action: saveMeal,
+            action: saveMealAction,
           },
         ],
       },
