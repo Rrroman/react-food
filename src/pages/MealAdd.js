@@ -4,7 +4,7 @@ import Container from '../components/Layout/Container';
 import MealDetailsForm from '../components/Meals/Meal/MealDetailsForm';
 import Card from '../components/UI/Card';
 
-const MealPurpose = () => {
+const MealAdd = () => {
   return (
     <Container>
       <Card>
@@ -15,9 +15,9 @@ const MealPurpose = () => {
   );
 };
 
-export default MealPurpose;
+export default MealAdd;
 
-export async function addMealAction({ request, params }) {
+export async function saveMeal({ request, params }) {
   const mealData = await request.formData();
   const meal = {
     name: mealData.get('name'),
