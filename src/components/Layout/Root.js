@@ -13,6 +13,8 @@ const RootLayout = () => {
   const closeCartHandler = () => setIsCartModal(false);
   const openCartHandler = () => setIsCartModal(true);
 
+  // Old way to show loading, it will appear at the top of the page
+  // after clicking few time on the Meals link
   useEffect(() => {
     let animationTimeout;
     if (navigation.state === 'loading') {
