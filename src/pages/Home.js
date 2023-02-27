@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Container from '../components/Layout/Container';
+import Container from '../components/UI/Container';
 import Card from '../components/UI/Card';
 
 export const HomePage = () => {

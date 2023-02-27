@@ -12,6 +12,7 @@
   padding: 0 10%;
   box-shadow: 0 2px 8px var(--color-shadow-500);
   z-index: 10;
+  flex: 1 1 0px;
 }
 
 .logo {
@@ -19,6 +20,12 @@
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
+}
+
+.aside {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .logo:hover {
@@ -43,6 +50,8 @@
 
 .list {
   display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
   gap: 1rem;
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/UI/Card';
 import MealDetails from '../components/Meals/Meal/MealDetails';
 import { json, redirect, useRouteLoaderData } from 'react-router-dom';
-import Container from '../components/Layout/Container';
+import Container from '../components/UI/Container';
 
 const MealPage = () => {
   const data = useRouteLoaderData('meal');
