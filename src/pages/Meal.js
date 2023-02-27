@@ -9,6 +9,7 @@ const MealPage = () => {
   return (
     <Container>
       <Card>
+        <h1>Meal Details</h1>
         <MealDetails mealDetails={data.meal} />
       </Card>
     </Container>

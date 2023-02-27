@@ -15,10 +15,10 @@ export default function MealDetails({ mealDetails }) {
 
   return (
     <div className={classes.meal}>
-      <h1>{mealDetails.name}</h1>
+      <h2>{mealDetails.name}</h2>
       <div className={classes.description}>
         <p>{mealDetails.description}</p>
-        <h2>Our receipt:</h2>
+        <h3>Our receipt:</h3>
         <p>{mealDetails.cooking_description}</p>
         <div className={classes.wrapper}>
           <Link to="edit" className={classes.link}>

@@ -2,3 +2,7 @@
   max-width: 1080px;
   margin-inline: auto;
 }
+
+h1 {
+  text-align: center;
+}

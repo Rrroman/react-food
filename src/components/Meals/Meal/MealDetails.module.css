@@ -6,11 +6,11 @@
   border-bottom: 1px solid var(--color-gray-300);
 }
 
-.meal h1 {
+.meal h2 {
   line-height: 3rem;
   margin: auto;
 }
-.meal h2 {
+.meal h3 {
   font-size: 1.2rem;
   margin: 0 0 0.25rem 0;
 }

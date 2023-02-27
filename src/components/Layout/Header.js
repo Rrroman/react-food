@@ -30,6 +30,15 @@ export default function Header({ openCartModal }) {
             {' '}
             Meals{' '}
           </NavLink>
+          <NavLink
+            to="/newsletter"
+            className={({ isActive }) =>
+              isActive ? `${classes.link} ${classes.active}` : null
+            }
+          >
+            {' '}
+            Newsletter{' '}
+          </NavLink>
         </ul>
         <CartButton openCartModal={openCartModal} />
       </header>

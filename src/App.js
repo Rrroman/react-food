@@ -9,6 +9,7 @@ import MealEdit from './pages/MealEdit';
 import MealAdd from './pages/MealAdd';
 import MealsPage from './pages/Meals';
 import { saveMealAction } from './components/Meals/Meal/MealDetailsForm';
+import NewsletterPage from './pages/Newsletter';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             action: saveMealAction,
           },
         ],
+      },
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
       },
     ],
   },
