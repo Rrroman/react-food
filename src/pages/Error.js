@@ -10,7 +10,7 @@ const ErrorPage = () => {
   let message = 'Something went wrong';
 
   useEffect(() => {
-    const navigateTimeout = setTimeout(() => navigate('/'), 7000);
+    const navigateTimeout = setTimeout(() => navigate('/'), 15000);
     return () => {
       clearTimeout(navigateTimeout);
     };
@@ -30,6 +30,7 @@ const ErrorPage = () => {
       <div>
         <h1>{errorTitle}</h1>
         <p>{message}</p>
+        {error.message}
         <p>
           <Link to="/">Go back home</Link>
         </p>

@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
-import { mealsLoader } from './components/Meals/AvailableMeals';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealPage, { mealDeleteAction, mealLoader } from './pages/Meal';
@@ -10,6 +9,7 @@ import MealAdd from './pages/MealAdd';
 import MealsPage from './pages/Meals';
 import { saveMealAction } from './components/Meals/Meal/MealDetailsForm';
 import NewsletterPage, { newsletterAction } from './pages/Newsletter';
+import { mealsLoader } from './components/Meals/Meals';
 
 const router = createBrowserRouter([
   {

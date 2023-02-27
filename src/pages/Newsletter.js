@@ -49,11 +49,10 @@ function NewsletterPage() {
 export default NewsletterPage;
 
 export async function newsletterAction({ request }) {
-  console.log(request);
   const data = await request.formData();
   const email = data.get('email');
 
   // send to backend newsletter server ...
-  console.log(email);
+  console.log(email, 'Lets pretend this is going to server');
   return { message: 'Signup successful!' };
 }
