@@ -12,35 +12,50 @@ export default function Header({ openCartModal }) {
         <Link to="/meals" className={classes.logo}>
           Best Food!
         </Link>
-        <ul className={classes.list}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? `${classes.link} ${classes.active}` : null
-            }
-          >
-            {' '}
-            Home{' '}
-          </NavLink>
-          <NavLink
-            to="/meals"
-            className={({ isActive }) =>
-              isActive ? `${classes.link} ${classes.active}` : null
-            }
-          >
-            {' '}
-            Meals{' '}
-          </NavLink>
-          <NavLink
-            to="/newsletter"
-            className={({ isActive }) =>
-              isActive ? `${classes.link} ${classes.active}` : null
-            }
-          >
-            {' '}
-            Newsletter{' '}
-          </NavLink>
-        </ul>
+        <nav className={classes.list}>
+          <ul>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? `${classes.link} ${classes.active}` : null
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/meals"
+                className={({ isActive }) =>
+                  isActive ? `${classes.link} ${classes.active}` : null
+                }
+              >
+                Meals
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/newsletter"
+                className={({ isActive }) =>
+                  isActive ? `${classes.link} ${classes.active}` : null
+                }
+              >
+                Newsletter
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/auth"
+                className={({ isActive }) =>
+                  isActive ? `${classes.link} ${classes.active}` : null
+                }
+              >
+                Authentication
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
         <div className={classes.aside}>
           <NewsletterSignup />
           <CartButton openCartModal={openCartModal} />
