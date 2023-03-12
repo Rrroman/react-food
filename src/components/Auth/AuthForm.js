@@ -20,9 +20,9 @@ function AuthForm() {
         </p>
         <div className={classes.actions}>
           <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
-            {isLogin ? 'Create new user' : 'Login'}
+            {isLogin ? 'Go to create new user' : 'Go to login'}
           </Link>
-          <button>Save</button>
+          <button>{isLogin ? 'Login' : 'Create'}</button>
         </div>
       </Form>
     </>

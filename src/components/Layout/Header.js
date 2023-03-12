@@ -46,7 +46,7 @@ export default function Header({ openCartModal }) {
             </li>
             <li>
               <NavLink
-                to="/auth"
+                to="/auth?mode=login"
                 className={({ isActive }) =>
                   isActive ? `${classes.link} ${classes.active}` : null
                 }
