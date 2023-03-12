@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/UI/Card';
 import MealDetails from '../components/Meals/Meal/MealDetails';
-import { json, redirect, useRouteLoaderData } from 'react-router-dom';
+import { useRouteLoaderData } from 'react-router-dom';
 import Container from '../components/UI/Container';
 
 const MealPage = () => {
@@ -18,33 +18,4 @@ const MealPage = () => {
 
 export default MealPage;
 
-export async function mealLoader({ request, params }) {
-  const response = await fetch('http://localhost:8080/meals/' + params.id);
-  if (!response.ok) {
-    throw json(
-      { message: 'Something went wrong!' },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    return response;
-  }
-}
 
-export async function mealDeleteAction({ request, params }) {
-  const response = await fetch('http://localhost:8080/meals/' + params.id, {
-    method: request.method,
-  });
-
-  if (!response.ok) {
-    throw json(
-      { message: 'Could not delete meal' },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    return redirect('/meals');
-  }
-}

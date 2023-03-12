@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Await, defer, json, useLoaderData } from 'react-router-dom';
+import { Await, useLoaderData } from 'react-router-dom';
 import Spinner from '../UI/Spinner';
 import AvailableMeals from './AvailableMeals';
 import MealsSummary from './MealsSummary';
@@ -19,23 +19,4 @@ export default function Meals() {
   );
 }
 
-async function loadMeals() {
-  const response = await fetch('http://localhost:8080/meals');
-  if (!response.ok) {
-    throw json(
-      { message: 'Something went wrong!' },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    const data = await response.json();
-    return data.meals;
-  }
-}
 
-export function mealsLoader() {
-  return defer({
-    meals: loadMeals(),
-  });
-}

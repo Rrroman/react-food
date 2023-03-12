@@ -3,16 +3,20 @@ import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
-import MealPage, { mealDeleteAction, mealLoader } from './pages/Meal';
+import MealPage from './pages/Meal';
+import {
+  mealDeleteAction,
+  mealLoader,
+  mealsLoader,
+  saveMealAction,
+} from './services/mealService';
 import MealEdit from './pages/MealEdit';
 import MealAdd from './pages/MealAdd';
 import MealsPage from './pages/Meals';
-import { saveMealAction } from './components/Meals/Meal/MealDetailsForm';
-import NewsletterPage, { newsletterAction } from './pages/Newsletter';
-import { mealsLoader } from './components/Meals/Meals';
-import AuthenticationPage, {
-  authenticationAction,
-} from './pages/Authentication';
+import NewsletterPage from './pages/Newsletter';
+import { newsletterAction } from './services/newsletterService';
+import AuthenticationPage from './pages/Authentication';
+import { authenticationAction } from './services/authenticationService';
 
 const router = createBrowserRouter([
   {
