@@ -19,6 +19,8 @@ import AuthenticationPage from './pages/Authentication';
 import {
   authenticationAction,
   logoutAction,
+  protectAuthLoader,
+  tokenLoader,
 } from './services/authenticationService';
 
 const router = createBrowserRouter([
@@ -26,6 +28,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    id: 'root',
+    loader: tokenLoader,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -51,6 +55,7 @@ const router = createBrowserRouter([
                 path: 'edit',
                 element: <MealEdit />,
                 action: saveMealAction,
+                loader: protectAuthLoader,
               },
             ],
           },
@@ -58,6 +63,7 @@ const router = createBrowserRouter([
             path: 'new',
             element: <MealAdd />,
             action: saveMealAction,
+            loader: protectAuthLoader,
           },
         ],
       },

@@ -1,8 +1,21 @@
 import { json, redirect } from 'react-router-dom';
 
 export function getAuthToken() {
-  const token = localStorage.getItem('token');
-  return token;
+  return localStorage.getItem('token');
+}
+
+export function tokenLoader() {
+  return getAuthToken();
+}
+
+export function protectAuthLoader() {
+  const token = getAuthToken();
+
+  if (!token) {
+    return redirect('/auth?mode=login');
+  }
+
+  return null;
 }
 
 export async function authenticationAction({ request }) {

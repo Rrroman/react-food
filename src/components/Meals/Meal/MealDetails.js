@@ -1,7 +1,9 @@
 import { Link, useSubmit } from 'react-router-dom';
+import { getAuthToken } from '../../../services/authenticationService';
 import classes from './MealDetails.module.css';
 
 export default function MealDetails({ mealDetails }) {
+  const token = getAuthToken();
   const submit = useSubmit();
   const deleteMealHandler = () => {
     const isConfirmed = window.confirm(
@@ -24,11 +26,13 @@ export default function MealDetails({ mealDetails }) {
           <Link to="edit" className={classes.link}>
             Edit
           </Link>
-          <button onClick={deleteMealHandler} className={classes.link}>
-            Delete
-          </button>
+          {token && (
+            <button onClick={deleteMealHandler} className={classes.link}>
+              Delete
+            </button>
+          )}
           <Link to="../new" className={`${classes.link} ${classes.new}`}>
-            Purpose new meal!
+            Add new meal!
           </Link>
         </div>
       </div>

@@ -2,10 +2,12 @@ import React from 'react';
 import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpeg';
 import CartButton from '../Cart/CartButton';
-import { Form, Link, NavLink } from 'react-router-dom';
+import { Form, Link, NavLink, useRouteLoaderData } from 'react-router-dom';
 import NewsletterSignup from '../Newsletter/NewsletterSignup';
 
 export default function Header({ openCartModal }) {
+  const token = useRouteLoaderData('root');
+
   return (
     <>
       <header className={classes.header}>
@@ -44,21 +46,25 @@ export default function Header({ openCartModal }) {
                 Newsletter
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/auth?mode=login"
-                className={({ isActive }) =>
-                  isActive ? `${classes.link} ${classes.active}` : null
-                }
-              >
-                Authentication
-              </NavLink>
-            </li>
-            <li>
-              <Form action="logout" method="POST">
-                <button>Logout</button>
-              </Form>
-            </li>
+            {!token && (
+              <li>
+                <NavLink
+                  to="/auth?mode=login"
+                  className={({ isActive }) =>
+                    isActive ? `${classes.link} ${classes.active}` : null
+                  }
+                >
+                  Authentication
+                </NavLink>
+              </li>
+            )}
+            {token && (
+              <li>
+                <Form action="logout" method="POST">
+                  <button>Logout</button>
+                </Form>
+              </li>
+            )}
           </ul>
         </nav>
         <div className={classes.aside}>

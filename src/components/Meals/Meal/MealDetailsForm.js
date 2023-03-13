@@ -86,5 +86,3 @@ function MealDetailsForm({ mealDetails, method }) {
 }
 
 export default MealDetailsForm;
-
-
