@@ -16,7 +16,10 @@ import MealsPage from './pages/Meals';
 import NewsletterPage from './pages/Newsletter';
 import { newsletterAction } from './services/newsletterService';
 import AuthenticationPage from './pages/Authentication';
-import { authenticationAction } from './services/authenticationService';
+import {
+  authenticationAction,
+  logoutAction,
+} from './services/authenticationService';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +70,10 @@ const router = createBrowserRouter([
         path: 'newsletter',
         element: <NewsletterPage />,
         action: newsletterAction,
+      },
+      {
+        path: 'logout',
+        action: logoutAction,
       },
     ],
   },

@@ -44,3 +44,8 @@ export async function authenticationAction({ request }) {
 
   return redirect('/');
 }
+
+export function logoutAction() {
+  localStorage.removeItem('token');
+  return redirect('/');
+}

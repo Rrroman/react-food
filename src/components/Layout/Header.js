@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpeg';
 import CartButton from '../Cart/CartButton';
-import { Link, NavLink } from 'react-router-dom';
+import { Form, Link, NavLink } from 'react-router-dom';
 import NewsletterSignup from '../Newsletter/NewsletterSignup';
 
 export default function Header({ openCartModal }) {
@@ -53,6 +53,11 @@ export default function Header({ openCartModal }) {
               >
                 Authentication
               </NavLink>
+            </li>
+            <li>
+              <Form action="logout" method="POST">
+                <button>Logout</button>
+              </Form>
             </li>
           </ul>
         </nav>

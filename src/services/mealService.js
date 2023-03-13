@@ -1,7 +1,10 @@
 import { defer, json, redirect } from 'react-router-dom';
+import { getAuthToken } from './authenticationService';
+
+const MEAL_URL = 'http://localhost:8080/meals';
 
 export async function mealLoader({ request, params }) {
-  const response = await fetch('http://localhost:8080/meals/' + params.id);
+  const response = await fetch(MEAL_URL + '/' + params.id);
   if (!response.ok) {
     throw json(
       { message: 'Something went wrong!' },
@@ -15,8 +18,11 @@ export async function mealLoader({ request, params }) {
 }
 
 export async function mealDeleteAction({ request, params }) {
-  const response = await fetch('http://localhost:8080/meals/' + params.id, {
+  const response = await fetch(MEAL_URL + '/' + params.id, {
     method: request.method,
+    headers: {
+      Authorization: 'Bearer ' + getAuthToken(),
+    },
   });
 
   if (!response.ok) {
@@ -32,7 +38,7 @@ export async function mealDeleteAction({ request, params }) {
 }
 
 async function loadMeals() {
-  const response = await fetch('http://localhost:8080/meals');
+  const response = await fetch(MEAL_URL);
   if (!response.ok) {
     throw json(
       { message: 'Something went wrong!' },
@@ -53,6 +59,7 @@ export function mealsLoader() {
 }
 
 export async function saveMealAction({ request, params }) {
+  const token = getAuthToken();
   const method = request.method;
   const mealData = await request.formData();
   const meal = {
@@ -62,7 +69,7 @@ export async function saveMealAction({ request, params }) {
     cooking_description: mealData.get('cooking_description'),
   };
 
-  let url = 'http://localhost:8080/meals';
+  let url = MEAL_URL;
 
   if (method === 'PATCH') {
     url += `/${params.id}`;
@@ -72,6 +79,7 @@ export async function saveMealAction({ request, params }) {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token,
     },
     body: JSON.stringify(meal),
   });
