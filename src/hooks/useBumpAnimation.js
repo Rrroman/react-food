@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function useBumpAnimation(dependency, duration) {
+const useBumpAnimation = (dependency, duration) => {
   const [isBump, setIsBump] = useState(false);
   const dependencyRef = useRef(dependency);
 
@@ -16,4 +16,6 @@ export default function useBumpAnimation(dependency, duration) {
   }, [dependency, duration]);
 
   return isBump;
-}
+};
+
+export default useBumpAnimation;

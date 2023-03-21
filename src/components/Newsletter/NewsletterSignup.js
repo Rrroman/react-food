@@ -1,16 +1,12 @@
-import { useEffect } from 'react';
 import { useFetcher } from 'react-router-dom';
+import useAlert from '../../hooks/useAlert';
 import classes from './NewsletterSignup.module.css';
 
 function NewsletterSignup() {
   const fetcher = useFetcher();
   const { data, state } = fetcher;
 
-  useEffect(() => {
-    if (state === 'idle' && data && data.message) {
-      alert(data.message);
-    }
-  }, [data, state]);
+  useAlert(data, state);
 
   return (
     <fetcher.Form

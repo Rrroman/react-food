@@ -17,7 +17,7 @@ function AuthForm() {
   const btnText = isLogin ? 'Login' : 'Create';
 
   return (
-    <Form method="post" className={classes.form}>
+    <Form name="authForm" method="post" className={classes.form}>
       <h1>{isLogin ? 'Log in' : 'Create a new user'}</h1>
       <div aria-live="polite">
         <ul>
@@ -29,14 +29,14 @@ function AuthForm() {
         </ul>
         {userData && userData.message && <p>{userData.message}</p>}
       </div>
-      <p>
+      <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="email" name="email" required />
-      </p>
-      <p>
+      </div>
+      <div>
         <label htmlFor="image">Password</label>
         <input id="password" type="password" name="password" required />
-      </p>
+      </div>
       <div className={classes.actions}>
         <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
           {isLogin ? 'Go to create new user' : 'Go to login'}
