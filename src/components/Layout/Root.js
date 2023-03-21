@@ -19,7 +19,9 @@ const RootLayout = () => {
   const submit = useSubmit();
 
   const closeCartHandler = () => setIsCartModal(false);
-  const openCartHandler = () => setIsCartModal(true);
+  const openCartHandler = (e) => {
+    setIsCartModal(true);
+  };
 
   useEffect(() => {
     if (!token) {

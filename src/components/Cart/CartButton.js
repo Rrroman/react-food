@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CartIcon from './CartIcon';
 import classes from './CartButton.module.css';
-import CartContext from '../../store/cart-context';
+import CartContext from '../../store/cartContext';
 
 export default function CartButton({ openCartModal }) {
   const [isBump, setIsBump] = useState(false);

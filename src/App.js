@@ -4,17 +4,10 @@ import RootLayout from './components/Layout/Root';
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import MealPage from './pages/Meal';
-import {
-  mealDeleteAction,
-  mealLoader,
-  mealsLoader,
-  saveMealAction,
-} from './services/mealService';
 import MealEdit from './pages/MealEdit';
 import MealAdd from './pages/MealAdd';
 import MealsPage from './pages/Meals';
 import NewsletterPage from './pages/Newsletter';
-import { newsletterAction } from './services/newsletterService';
 import AuthenticationPage from './pages/Authentication';
 import {
   authenticationAction,
@@ -22,6 +15,13 @@ import {
   protectAuthLoader,
   tokenLoader,
 } from './services/authenticationService';
+import {
+  mealDeleteAction,
+  mealLoader,
+  mealsLoader,
+  saveMealAction,
+} from './services/mealService';
+import { newsletterAction } from './services/newsletterService';
 
 const router = createBrowserRouter([
   {
