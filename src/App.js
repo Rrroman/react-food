@@ -90,5 +90,3 @@ function App() {
 }
 
 export default App;
-
-// just test !
