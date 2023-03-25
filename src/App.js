@@ -89,6 +89,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App;
-
-// This should be in github but not in local
+export default App; // new update
