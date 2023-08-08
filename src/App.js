@@ -1,4 +1,9 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 import MealsRootLayout from './components/Layout/MealsRoot';
 import RootLayout from './components/Layout/Root';
 import ErrorPage from './pages/Error';
@@ -25,7 +30,7 @@ import { newsletterAction } from './services/newsletterService';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/', // Can be removed
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     id: 'root',
@@ -84,6 +89,51 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+const router2 = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<RootLayout />}
+      errorElement={<ErrorPage />}
+      id="root"
+      loader={tokenLoader}
+    >
+      <Route index element={<HomePage />} />
+      <Route path="meals" element={<MealsRootLayout />}>
+        <Route index element={<MealsPage />} loader={mealsLoader} />
+        <Route path=":id" id="meal" loader={mealLoader}>
+          <Route index element={<MealPage />} action={mealDeleteAction} />
+          <Route
+            path="edit"
+            element={<MealEdit />}
+            action={saveMealAction}
+            loader={protectAuthLoader}
+          />
+        </Route>
+        <Route
+          path="new"
+          element={<MealAdd />}
+          action={saveMealAction}
+          loader={protectAuthLoader}
+        />
+      </Route>
+      <Route
+        path="auth"
+        element={<AuthenticationPage />}
+        action={authenticationAction}
+      />
+      <Route
+        path="newsletter"
+        element={<NewsletterPage />}
+        action={newsletterAction}
+      />
+      <Route path="logout" action={logoutAction} />
+    </Route>
+  )
+);
+
+console.log(router, router2);
 
 function App() {
   return <RouterProvider router={router} />;
