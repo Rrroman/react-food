@@ -30,7 +30,7 @@ import { newsletterAction } from './services/newsletterService';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/', // Can be removed
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     id: 'root',
